@@ -31,7 +31,9 @@ def run_preprocessing(input_path, output_path):
 
     # 5. Simpan Data Bersih
     # Buat folder jika belum ada
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    dir_name = os.path.dirname(output_path)
+    if dir_name:
+        os.makedirs(dir_name, exist_ok=True)
     df.to_csv(output_path, index=False)
     print(f"Preprocessing sukses! Data disimpan di: {output_path}")
 
